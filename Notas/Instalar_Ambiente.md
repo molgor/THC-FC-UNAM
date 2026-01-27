@@ -23,7 +23,8 @@ curl -sSL https://install.python-poetry.org | python3 -
 ```
 
 **Nota:** Instalar software de esta manera puede ser inseguro. 
-La cadena de confianza en este software está en los administradores del dominio `python-poetry.org`.
+La cadena de confianza en este software está en los administradores del dominio `python-poetry.org`. 
+
 
 ### Verifica la instalación:
 ```bash
@@ -55,24 +56,6 @@ Si se requiren otros paquetes o dependencias, estás pueden ser agregadas de la 
 ## Comenzamos 🚀 !
 ```bash
 ipython
-```
-
-
-# Cuadernos interactivos en Python (y más) con JupyterLab
-
-## ¿Qué es Jupyter?
-
-Jupyter es un ecosistema de herramientas de código abierto para computación interactiva. Permite crear **notebooks** que combinan código ejecutable, visualizaciones, texto y ecuaciones. Soporta múltiples lenguajes (Python, R, Julia, etc.) y es ampliamente usado en ciencia de datos y análisis.
-
-## ¿Cómo iniciar JupyterLab?
-
-```bash
-jupyter lab
-```
-
-Esto abrirá JupyterLab en tu navegador predeterminado. Para especificar puerto o directorio:
-```bash
-jupyter lab --port 8889 --notebook-dir=~/mi-proyecto
 ```
 
 
