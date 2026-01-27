@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "thc_fciencias"
+version = "0.1.0"
+description = "Ambiente de desarrollo para el Taller de Herramientas Computacionales"
+authors = ["Juan Escamilla Molgora <j.escamilla.molgora@ciencias.unam.mx>", "Antonio Guerrero López <jesus-antonio-guerrero@ciencias.unam.mx>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+jupyterlab = "^4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
