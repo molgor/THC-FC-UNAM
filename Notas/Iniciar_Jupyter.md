@@ -18,6 +18,9 @@
 Si necesitas ayuda para configurarlo o ejemplos específicos, ¡contáctanos! 🌟
 
 ## ¿Cómo iniciar JupyterLab?
+Inicializar el ambiente de trabajo local (ver: [[file:Instalar_Ambiente.md][instalar ambiente]])
+
+Una vez dentro del ambiente, se puede correr el comando:
 
 ```bash
 jupyter lab
