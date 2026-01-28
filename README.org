@@ -1,0 +1,97 @@
+#+TITLE: Taller de Herramientas Computacionales
+#+SUBTITLE: Presentación del curso
+#+AUTHOR: Juan M Escamilla Mólgora y Antonio Guerrero López
+#+DATE: Semestre 2026-2
+#+OPTIONS: toc:nil
+
+* Presentación del curso
+En este curso aprenderás herramientas computacionales modernas para poder realizar tus actividades académicas a lo largo de toda la carrera.
+
+El objetivo de este curso, es poder dar a los estudiantes los elementos necesarios para navegar en el universo de las tecnologías de la información de manera libre, gratuita y colaborativa, utilizando software libre y código abierto. No se busca crear expertos en alguna plataforma, tecnología o librería, en cambio, dotar a los estudiantes de confianza y habilidades para entender, estudiar y, eventualmente, colaborar en el maravillo mundo de la computación y la modelación científica. 
+
+La prioridad del curso, es que los estudiantes realicen todas las actividades en su propia computadora (ambiente local), emancipándose de tecnologías o plataformas corporativas que crean dependencias tecnológicas a cambio de comodidad y abstracciones artificiales. Al finalizar el curso, los asistentes del curso podrán analizar y reportar resultados científicamente utilizando algún lenguake de marcado como Latex y bibliotecas básicas de análisis y visualización de datos. 
+
+** Formato del curso
+
+- **Modalidad Virtual** El curso se imparte de manera virtual. Vamos a utilizar, por el momento, la plataforma /google talk/ (o cómo sea que se llame ahora) para poder hacer la transmisión de las clases.
+- En principio las clases no serán grabadas, sin embargo esto puede cambiar dependiendo de las necesidades y organización de los estudiantes.
+     
+  
+** Horario
+
+*** Teoría y métodos: 
+- Martes de 7 a 9 am
+**Imparte:** Juan Escamilla Mólgora
+
+*** Taller de prácticas:
+- Jueves de 7 a 9 am
+**Imparte:** Antonio Guerrero López
+
+ 
+
+* Temario
+
+** Módulo 1: El ecosistema del Software Libre y de Código Abierto
+- Presentación del curso y retroalimentación *¿Qué esperar del curso?*
+- Anatomía de una computadora y un sistema operativo
+- Principales Sistemas Operativos y sus diferencias
+- Instalación y actualización de software en sistemas basados en Unix
+- Programas y comandos esenciales
+- Configuración del /Shell/  
+- IDEs -- guía básica de comandos en VIM y Tmux            
+
+** Módulo 2: Introducción al análisis, modelación y visualización de datos con Python
+- Ecosistema de Python (paquetes, versiones, etc)
+- Manejo de Ambientes Virtuales
+- Sesiones interactivas
+- Instalación de paquetes
+- Tipos de datos en Python  
+- Manejo de tablas con Pandas
+- Visualización de datos con Pandas
+- Análisis espacial con GeoPandas  
+
+** Módulo 3: Métodos numéricos para aplicaciones estadísticas 
+- Computación simbólica   
+- Simulación estocástica
+- Ajuste de modelos paramétricos
+- Introducción a la regresión lineal
+- Visualización de datos (correlogramas, scatterplots, boxplots, etc)
+
+** Módulo 4: Cómo presentar un trabajo científico
+- El tríangulo de la Ciencia (Datos, Teoría y Modelos)
+- Reproducibilidad, Relevancia y Rigor 
+- Estructura de un Artículo Científico
+- Tex, Latex y otros lenguajes de Marcado para escribir artículos
+- Bibtex y su integración con software para manejo de referencias
+- Presentación de *Trabajos Finales*
+
+
+** Recursos en línea
+  
+- **Repositorio Central** En este enlace: [[https://github.com/molgor/THC-FC-UNAM]] se encuentra toda la información relacionada al curso.
+
+- **Notas y Recursos** Las notas y recursos se encontrarán en el *repositorio central* dentro de la carpeta /Notas/.
+
+- **Página web** Por determinar, mantente al día en el *repositorio central*
+
+** Evaluación
+
+*** Prácticas* y *Trabajo final*
+|                  | módulo | porcentaje de calificación final |
+|------------------+--------+----------------------------------|
+| *práctica 1*     |      1 |                              15% |
+| *práctica 2*     |      2 |                              15% |
+| *práctica 3*     |      3 |                              15% |
+| *práctica final* |  1 - 4 |                              55% |
+
+
+
+** Forma de entrega de prácticas
+**Nota:** Este proceso es experimental y puede cambiar a lo largo del curso.
+Idealmente, quisieramos implementar el siguiente flujo de trabajo.
+
+*** Flujo de GIT (/Gitflow/)
+1. Cada estudiante hace un fork del *Repositorio Central*
+2. Completa la práctica (Notebook interactivo)
+3. Hace una petición de integración (/merge request/) en una rama nueva con formato: `/practica_n/Apellido_Nombre`
+4. Antonio revisa la práctica y propone comentarios, habrá una oportunidad para corregir y volver a someter la práctica una sóla vez (esto contará como reposición). Las fechas de entrega y segundas vueltas se definirán durante el semestre.          
