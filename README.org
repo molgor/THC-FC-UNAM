@@ -4,6 +4,17 @@
 #+DATE: Semestre 2026-2
 #+OPTIONS: toc:nil
 
+* tldr;
+** Horario
+- Martes de 7 a 9 am
+- Jueves de 7 a 9 am
+  
+** Salón virtual
+- [[https://meet.google.com/zpe-kowj-jvi][Google Meet (enlace)]]
+- Código para entrar a la clase: lzzbhb6m
+
+  
+
 * Presentación del curso
 En este curso aprenderás herramientas computacionales modernas para poder realizar tus actividades académicas a lo largo de toda la carrera.
 
