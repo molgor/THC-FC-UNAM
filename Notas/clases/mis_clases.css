@@ -1,0 +1,18 @@
+/*  mis_classes.css  */
+
+
+
+.slide-header {
+  position: sticky;   /* keep it in normal flow but glue it */
+  top: 0;             /* stick to the very top of the viewport */
+  z-index: 9999;      /* sit above page content */
+  /* (optional, but common) */
+  background: white;  /* or whatever */
+}
+.slide-footer {
+  padding: 1rem 2rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #ddd;
+}
+
