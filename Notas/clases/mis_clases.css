@@ -16,3 +16,6 @@
   border: 1px solid #ddd;
 }
 
+.two-col { display: flex; gap: 20px; }
+.col { flex: 1; }
+.col img { max-height: 70vh; width: auto; }

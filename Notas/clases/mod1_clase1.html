@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Introducción a Unix / Linux</title>
+<meta name="author" content="Juan Escamilla Mólgora"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/league.css" id="theme"/>
+
+<link rel="stylesheet" href="./mis_clases.css"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./images/earth-space1.png" data-background-size="1924px"><h1 class="title">Introducción a Unix / Linux</h1><p class="subtitle">Módulo 1 del Taller de Herramientas Computacionales</p>
+<h2 class="author">Juan Escamilla Mólgora</h2><h2 class="date">10 de Febrero, 2026</h2><p class="date">Created: 2026-02-10 Tue 01:10</p>
+</section>
+<section>
+<section id="slide-org7646d07" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org7646d07"><span class="section-number-2">1.</span> Anatomía genérica de una computadora</h2>
+<div class="two-col">
+<div class="col">
+<ul>
+<li class="fragment roll-in">Unidad Central de Procesamiento (CPU): El &ldquo;cerebro&rdquo; que ejecuta cálculos y controla operaciones.</li>
+<li class="fragment roll-in">Memoria de Acceso Aleatorio (RAM): Almacenamiento temporal de alta velocidad para datos en uso activo.</li>
+<li class="fragment roll-in">Almacenamiento (HDD/SSD): Espacio persistente para guardar programas y archivos a largo plazo.</li>
+
+</ul>
+
+</div>
+<div class="col">
+
+<div id="org59bdefb" class="figure">
+<p><img src="images/pc_anat.gif" alt="pc_anat.gif" />
+</p>
+</div>
+
+</div>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgadfcc45" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgadfcc45"><span class="section-number-2">2.</span> Abstracción de una computadora</h2>
+
+<div id="orgb0c2e08" class="figure">
+<p><img src="images/ana-pc1.png" alt="ana-pc1.png" />
+</p>
+</div>
+
+<p>
+<a href="https://cspages.ucalgary.ca/~cjacob/Courses/Fall00/CPSC231/Slides/02-ComputerAnatomy.pdf">Tomado de C. Jacob, 2000</a>
+</p>
+</section>
+<section id="slide-org04b9f4e" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org04b9f4e"><span class="section-number-3">2.1.</span> Representación física</h3>
+<p>
+El Transistor: Bloque fundamental de los circuitos electrónicos
+</p>
+
+<div id="org608b8a5" class="figure">
+<p><img src="./images/transistors.jpg" alt="transistors.jpg" class="fragment (roll-in)" />
+</p>
+</div>
+
+<p>
+<a href="https://upload.wikimedia.org/wikipedia/commons/5/5a/Transistors.agr.jpg">Wikipedia, ArnoldReinhold</a>
+</p>
+
+</section>
+<section id="slide-org04b9f4e-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+
+<div id="orgea55234" class="figure">
+<p><img src="./images/transistor2.png" alt="transistor2.png" />
+</p>
+</div>
+
+<ul>
+<li class="fragment roll-in">Dispositivo semiconductor que actúa como un interruptor (<i>switch</i>) o amplificador en circuitos electrónicos.</li>
+
+<li class="fragment roll-in">Controla el flujo de corriente entre dos terminales mediante una tercera (puerta).</li>
+
+<li class="fragment roll-in">Permite construir puertas lógicas (AND, OR, NOT), base de la lógica digital.</li>
+<li class="fragment roll-in">Millones o miles de millones de transistores se integran en un solo chip (CPU).</li>
+
+</ul>
+</section>
+<section id="slide-orgb71a57f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgb71a57f"><span class="section-number-3">2.2.</span> Abstracción como <i>compuertas lógicas</i></h3>
+<p>
+Varios transistores hacen (com)puertas lógicas (<i>logic gates</i>)
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=VNzkhZBjo5k">Del transistor a la puerta lógica (video)</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">A</th>
+<th scope="col" class="org-right">B</th>
+<th scope="col" class="org-right">A AND B</th>
+<th scope="col" class="org-right">A OR B</th>
+<th scope="col" class="org-right">A NAND B*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-org1f342be" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org1f342be"><span class="section-number-3">2.3.</span> Al microscopio</h3>
+<p>
+Semiconductores de silicio (transistores)
+<a href="https://www.youtube.com/watch?v=Knd-U-avG0c">Video chip bajo el microscopio</a>
+</p>
+</section>
+<section id="slide-org43241d5" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org43241d5"><span class="section-number-3">2.4.</span> Arquitectura von Neumann: Modelo Fundamental de Cómputo</h3>
+
+<div id="org2af2a13" class="figure">
+<p><img src="./images/von_neuman_arch.png" alt="von_neuman_arch.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-org43241d5-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li class="fragment roll-in"><b>ALU (Unidad Aritmético-Lógica)</b>: Ejecuta operaciones matemáticas y lógicas básicas (sumas, comparaciones, etc.).</li>
+<li class="fragment roll-in"><b>Unidad de Control</b>: Coordina el flujo de datos e instrucciones, decodificando comandos desde la memoria.</li>
+<li class="fragment roll-in"><b>Memoria Principal</b>: Almacena <b>datos e instrucciones del programa</b> en una única unidad.</li>
+
+<li class="fragment roll-in"><b>Dispositivos de Entrada (Input)</b>: Introducen información al sistema (ej.: teclado, sensor, archivo).</li>
+<li class="fragment roll-in"><b>Dispositivos de Salida (Output)</b>: Presentan resultados procesados (ej.: pantalla, altavoz, archivo).</li>
+
+</ul>
+</section>
+<section id="slide-org511a715" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org511a715"><span class="section-number-3">2.5.</span> Arquitectura de Von Neuman</h3>
+
+<div id="orgf4ea46e" class="figure">
+<p><img src="./images/von_neuman_arch2.png" alt="von_neuman_arch2.png" />
+</p>
+</div>
+
+<p>
+<a href="https://cspages.ucalgary.ca/~cjacob/Courses/Fall00/CPSC231/Slides/02-ComputerAnatomy.pdf">Tomado de C. Jacob, 2000</a>
+</p>
+
+</section>
+<section id="slide-org511a715-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li class="fragment roll-in"><b>Cómputo universal</b>: Diseño independiente de problemas específicos mediante colecciones de componentes lógicos (AND, OR).</li>
+
+<li class="fragment roll-in"><b>Algoritmo y datos</b> residen en la <i>misma memoria</i> (i.e. &ldquo;programa almacenado&rdquo;).</li>
+
+<li class="fragment roll-in">Cada <b>ubicación de memoria</b> tiene una dirección <b>única</b> para acceso directo.</li>
+
+<li class="fragment roll-in">Los comandos del programa se <b>almacenan secuencialmente</b>, con posibilidad de <i>saltos condicionales</i>.</li>
+
+</ul>
+</section>
+<section id="slide-org28c7e7c" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org28c7e7c"><span class="section-number-3">2.6.</span> Lenguaje de máquina</h3>
+<p>
+Arreglo binario (32 o 64 bits) de la forma:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Operación</td>
+<td class="org-left">Dir entrada 1</td>
+<td class="org-left">Dir. entrada 2</td>
+<td class="org-left">Dir. Resultados</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li class="fragment roll-in">Operaciones elementales como: 
+<ul>
+<li>transferencia de datos</li>
+<li>secuencia  o control de operaciones</li>
+<li>operaciones lógicas y aritméticas</li>
+
+</ul></li>
+<li class="fragment roll-in">Representación binaria de operaciones (hexadecimal)</li>
+
+</ul>
+
+</section>
+<section id="slide-org28c7e7c-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<p>
+Ejemplo de lenguaje de máquina
+<img src="./images/machine_code.png" alt="machine_code.png" />
+</p>
+</section>
+<section id="slide-org3940c7b" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org3940c7b"><span class="section-number-3">2.7.</span> Ensamblador</h3>
+<ul>
+<li class="fragment roll-in">Código máquina: secuencia binaria ejecutada directamente por CPU.</li>
+<li class="fragment roll-in">Específico por arquitectura: cada CPU (x86, ARM, incluso dif. entre modelos) interpreta códigos distintos (incompatibilidad entre plataformas).</li>
+<li class="fragment roll-in">casi imposibles de depurar manualmente, uso de <i>debuggers hexadecimales</i> (ingeniería inversa).</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org52fc999" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org52fc999"><span class="section-number-2">3.</span> Lenguajes y su Relación con el Código Máquina</h2>
+<p>
+Existen dos tipos de lenguajes de programación:
+</p>
+</section>
+<section id="slide-orgcd498a6" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgcd498a6"><span class="section-number-3">3.1.</span> Lenguajes Compilados</h3>
+<p>
+Utilizan un compilador para convertir todo el código a lenguaje de máquina.
+</p>
+<ul>
+<li class="fragment roll-in">Un compilador es un programa que traduce código fuente lenguaje de alto nivel a código máquina ejecutable por el CPU.
+Ejemplos:
+<ul>
+<li>C</li>
+<li>Rust</li>
+<li>Julia</li>
+
+</ul></li>
+
+<li class="fragment roll-in">Realiza la traducción completa <i>antes</i> de la ejecución, generando un archivo objeto independiente (ejecutable binario).</li>
+<li class="fragment roll-in">El código máquina resultante es específico de la arquitectura del procesador (ej.: x86, ARM).</li>
+
+</ul>
+
+</section>
+<section id="slide-orgcd498a6-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li class="fragment roll-in">Optimiza instrucciones para mejorar rendimiento, atado al hardware donde se compiló.</li>
+<li class="fragment roll-in">Elimina la necesidad de escribir en binario/hexadecimal, facilitando el desarrollo.</li>
+<li class="fragment roll-in">Explica por qué el mismo código fuente requiere recompilación para distintas plataformas.</li>
+
+</ul>
+</section>
+<section id="slide-orgd924a3c" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgd924a3c"><span class="section-number-3">3.2.</span> Lenguaje Interpretado</h3>
+<ul>
+<li class="fragment roll-in">Lenguaje de programación que no se compila a código máquina antes de ser ejecutado, sino que se interpreta línea por línea en tiempo de ejecución.</li>
+<li class="fragment roll-in">Presenta mayor flexibilidad, permitiendo cambios rápidos en el código sin necesidad de recompilación.</li>
+<li class="fragment roll-in">Ejemplos incluyen:
+<ul>
+<li>Python</li>
+<li>R</li>
+<li>JavaScript,</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgd924a3c-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li class="fragment roll-in">Permite depuración en tiempo real, facilitando la identificación de errores durante la ejecución.</li>
+<li class="fragment roll-in">Suele ser más lento que los lenguajes compilados debido al proceso de interpretación.</li>
+<li class="fragment roll-in">Utiliza un intérprete que traduce y ejecuta el código sobre la marcha, en contraste con la generación previa de código máquina.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org2e00e69" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org2e00e69"><span class="section-number-2">4.</span> ¿ Qué es un sistema Operativo?</h2>
+<ul>
+<li class="fragment roll-in">Software base que <b>gestiona el hardware</b>, recursos del sistema y actúa como <b>intermediario entre aplicaciones y componentes físicos</b>.</li>
+<li class="fragment roll-in">Proporciona servicios esenciales: administración de procesos, memoria, almacenamiento y dispositivos periféricos (red, teclado, sonido, pantalla, etc).</li>
+<li class="fragment roll-in">Garantiza la ejecución segura y concurrente de múltiples programas mediante mecanismos de control de acceso.</li>
+
+</ul>
+</section>
+<section id="slide-org2e00e69-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+
+<div id="orgc6baff8" class="figure">
+<p><img src="./images/Kernel_Layout.svg" alt="Kernel_Layout.svg" class="org-svg" />
+</p>
+</div>
+</section>
+<section id="slide-orga75a5e0" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orga75a5e0"><span class="section-number-3">4.1.</span> ¿El sistema operativo es un software compilado (binario)?</h3>
+<ul>
+<li class="fragment roll-in">Tenemos certeza sobre lo qué está haciendo?</li>
+<li class="fragment roll-in">¿Cómo podemos saber que está ejecutando?</li>
+<li class="fragment roll-in">¿Podemos actualizarlo siempre ?</li>
+<li class="fragment roll-in">¿Protege nuestra privacidad ?</li>
+<li class="fragment roll-in">¿Podemos estudiarlo ?</li>
+<li class="fragment roll-in">¿Podemos adaptarlo a nuestras necesidades ?</li>
+<li class="fragment roll-in">¿Podemos compartir las modificaciones ?</li>
+<li class="fragment roll-in">¿Es legal hacerlo?</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org42ed813" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org42ed813"><span class="section-number-2">5.</span> Proyecto GNU</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-org6ccd0e8" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org6ccd0e8"><span class="section-number-3">5.1.</span> Aplicaciones</h3>
+<div class="two-col">
+<div class="col">
+<ul>
+<li class="fragment roll-in">En 1983, Richard Stallman anunció en Usenet la creación del proyecto GNU, con el objetivo de desarrollar un sistema operativo completamente libre, como alternativa al software propietario.</li>
+
+<li class="fragment roll-in">En 1989, Stallman publicó la Licencia Pública General de GNU (GPL), una licencia que garantiza estas libertades y evita el uso no ético del software.</li>
+
+</ul>
+
+</div>
+<div class="col">
+
+<div id="orgc800748" class="figure">
+<p><img src="images/Richard_Stallman_at_LibrePlanet_2019.jpg" alt="Richard_Stallman_at_LibrePlanet_2019.jpg" />
+</p>
+</div>
+
+<p>
+from wikimedia.org
+&ldquo;Richard<sub>Stallman</sub><sub>at</sub><sub>LibrePlanet</sub><sub>2019</sub>&rdquo; by Ruben Rodriguez 
+</p>
+</div>
+</div>
+</section>
+<section id="slide-org42b39c2" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org42b39c2"><span class="section-number-3">5.2.</span> Las cuatro libertades de Software Libre</h3>
+<div class="two-col">
+<div class="col">
+<ul>
+<li class="fragment roll-in">Libertad para usar el software</li>
+<li class="fragment roll-in">Libertad para estudiar el código fuente,</li>
+<li class="fragment roll-in">Libertad para adaptarlo a nuestras necesidades</li>
+<li class="fragment roll-in">Libertad para compartir las modificaciones con la comunidad</li>
+
+</ul>
+</div>
+<div class="col">
+
+<div id="orgde8b040" class="figure">
+<p><img src="images/gnu.png" alt="gnu.png" />
+</p>
+</div>
+
+<p>
+A beautiful Gnu from: <a href="https://gnu.org">https://gnu.org</a> 
+</p>
+</div>
+</div>
+
+
+
+</section>
+<section id="slide-org42b39c2-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li class="fragment roll-in">La GPL se ha convertido en una de las licencias de software libre más utilizadas, fomentando el desarrollo colaborativo y la cultura del &ldquo;copyleft&rdquo;.</li>
+<li class="fragment roll-in">El proyecto GNU incluye herramientas fundamentales como el compilador GCC y el editor Emacs, que se han vuelto esenciales en el mundo del software libre.</li>
+<li class="fragment roll-in">Para más detalles, puedes leer el anuncio original aquí: [Anuncio del Proyecto GNU](<a href="https://www.gnu.org/gnu/initial-announcement.html">https://www.gnu.org/gnu/initial-announcement.html</a>).</li>
+
+</ul>
+</section>
+<section id="slide-orga43289c" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orga43289c"><span class="section-number-3">5.3.</span> El Kernel Linux</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+</section>
+<section id="slide-orgec44b6b" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgec44b6b"><span class="section-number-4">5.3.1.</span> Anuncio de Linus Torvalds y el Nacimiento de Linux</h4>
+<div class="two-col">
+<div class="col">
+<ul>
+<li class="fragment roll-in">En 1991, Linus Torvalds publicó un mensaje en Usenet anunciando el desarrollo de un núcleo operativo (kernel) llamado Linux, inspirado en los sistemas Unix y en soporte para el software GNU.</li>
+<li class="fragment roll-in">Inicialmente, Linux fue creado como un proyecto personal, pero rápidamente ganó popularidad al ser un sistema operativo libre que podía usarse junto con las herramientas GNU.</li>
+
+</ul>
+</div>
+<div class="col">
+
+<div id="org29749de" class="figure">
+<p><img src="images/torvalds.jpg" alt="torvalds.jpg" />
+</p>
+</div>
+
+<p>
+image of Linus Torvalds speaking at the LinuxCon Europe 2014 in Düsseldorf
+</p>
+</div>
+</div>
+
+
+</section>
+<section id="slide-orgec44b6b-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<div class="two-col">
+<div class="col">
+<ul>
+<li class="fragment roll-in">La combinación de GNU con el núcleo Linux dio origen a &ldquo;GNU/Linux&rdquo;, un sistema operativo robusto, libre y de código abierto, ampliamente utilizado en servidores y dispositivos.</li>
+<li class="fragment roll-in">Este sistema operativo se convirtió en la base de muchas distribuciones populares (ej.: Ubuntu, Debian, CentOS), que son el estándar en servidores y nube, corriendo en más del 90% de los servidores globales.</li>
+<li class="fragment roll-in">La filosofía de software libre promovida tanto por Stallman como por Torvalds ha impulsado un ecosistema colaborativo que sigue moldeando la informática actual.</li>
+
+</ul>
+
+
+</div>
+<div class="col">
+
+<div id="org4154a75" class="figure">
+<p><img src="images/gnulinux-logo.png" alt="gnulinux-logo.png" />
+</p>
+</div>
+
+<p>
+Logo GNU-LINUX
+</p>
+</div>
+</div>
+
+<aside class="notes">
+<p>
+Módulo 1: Introducción a Linux/Unix
+</p>
+<ul>
+<li>Anatomía de una computadora y un sistema operativo</li>
+<li>Instalación y actualización de software en sistemas basados en Unix</li>
+<li>Programas y comandos esenciales</li>
+<li>Configuración del <i>Shell</i></li>
+<li>IDEs &#x2013; guía básica de comandos en VIM y Tmux</li>
+
+</ul>
+
+</aside>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealZoom, RevealNotes],
+background: "url('./images/vlt-mw-potw.jpg) no-repeat center/cover", transition: 'cube', width:"95%", height:"95%", center: true, autoPlayMedia: false
+});
+
+</script>
+</body>
+</html>
