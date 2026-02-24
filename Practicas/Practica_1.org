@@ -12,3 +12,6 @@ REspuesta 1
 REspuesta 2
 * Ejercicio 3
 REspuesta 3
+
+* Pregunta 4
+Esta es mi respuesta de la pregunta 4
