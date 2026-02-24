@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Ambientes y Scripting con Bash</title>
+<meta name="author" content="Juan Escamilla Mólgora"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/league.css" id="theme"/>
+
+<link rel="stylesheet" href="./mis_clases.css"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./images/earth-space1.png" data-background-size="1924px"><h1 class="title">Ambientes y Scripting con Bash</h1><p class="subtitle">Módulo 1 del Taller de Herramientas Computacionales</p>
+<h2 class="author">Juan Escamilla Mólgora</h2><h2 class="date">24 de Febrero, 2026</h2><p class="date">Created: 2026-02-24 Tue 00:19</p>
+</section>
+<section>
+<section id="slide-orgb36d87a" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgb36d87a"><span class="section-number-2">1.</span> El Shell (Terminal)</h2>
+<p>
+Un <b>shell</b> es un programa que proporciona una interfaz entre el usuario y el kernel (núcleo) del sistema operativo. El shell es la capa de comandos que permite a los usuarios comunicarse con el sistema operativo mediante instrucciones escritas.
+</p>
+
+</section>
+<section id="slide-orgb36d87a-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+
+<div id="org645fc81" class="figure">
+<p><img src="./images/ghost01.jpg" alt="ghost01.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-org153f3b4" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org153f3b4"><span class="section-number-3">1.1.</span> Tipos de shells</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+</section>
+<section id="slide-org9fa0def" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org9fa0def"><span class="section-number-4">1.1.1.</span> Bash (Bourne Again SHell)</h4>
+<p>
+<code>bash</code> es uno de los shells más populares y ampliamente utilizados en sistemas Linux y BSD (MacOs). El shell por defecto en muchas distribuciones Linux.
+</p>
+
+
+</section>
+<section id="slide-org9fa0def-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li class="fragment roll-in">Es un shell de comando interactivo.</li>
+<li class="fragment roll-in">Soporta scripting avanzado.</li>
+<li class="fragment roll-in">Se ejecuta en línea de comandos o como script.</li>
+
+</ul>
+
+<p>
+🔗 [Documentación oficial de Bash](<a href="https://www.gnu.org/software/bash/manual/">https://www.gnu.org/software/bash/manual/</a>)
+</p>
+</section>
+<section id="slide-org9f1295f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org9f1295f"><span class="section-number-4">1.1.2.</span> Zsh (Z Shell)</h4>
+<p>
+<code>zsh</code> es otro shell moderno que ofrece características avanzadas en comparación con <code>bash</code>.
+</p>
+
+<ul>
+<li>Proporciona mejor completado de comandos.</li>
+<li>Tiene soporte para temas personalizados.</li>
+<li>Incluye funciones avanzadas de expansión de patrones.</li>
+<li>Puede ser configurado para trabajar como <code>bash</code>.</li>
+
+</ul>
+
+<p>
+🔗 [Sitio web oficial de Zsh](<a href="https://zsh.sourceforge.io/">https://zsh.sourceforge.io/</a>)
+</p>
+</section>
+<section id="slide-orgfe807f8" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgfe807f8"><span class="section-number-4">1.1.3.</span> Otros Shells</h4>
+<ul>
+<li class="fragment roll-in">FISH</li>
+<li class="fragment roll-in">CSH</li>
+<li class="fragment roll-in">SH</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgec83651" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgec83651"><span class="section-number-2">2.</span> Comandos básicos</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+</section>
+<section id="slide-org77af694" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org77af694"><span class="section-number-3">2.1.</span> ls :: Listar archivos en un directorio</h3>
+<p>
+<code>ls</code> permite ver el contenido de un directorio.
+</p>
+</section>
+<section id="slide-orgda7f188" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgda7f188"><span class="section-number-4">2.1.1.</span> Uso básico</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #c792ea;">ls</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org8d93772" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org8d93772"><span class="section-number-4">2.1.2.</span> Opciones comunes de <code>ls</code></h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Opción</th>
+<th scope="col" class="org-left">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>ls -l</code></td>
+<td class="org-left">Muestra detalles (permisos, propietario, tamaño, fecha de modificación)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ls -a</code></td>
+<td class="org-left">Muestra archivos ocultos (aquellos que empiezan con <code>.</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ls -la</code></td>
+<td class="org-left">Combina <code>-l</code> y <code>-a</code>: muestra todos los archivos con detalles</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ls -h</code></td>
+<td class="org-left">Usa unidades legibles (KB, MB, GB) cuando se combina con <code>-l</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ls /ruta/</code></td>
+<td class="org-left">Lista los archivos de un directorio específico</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="slide-org624eb30" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org624eb30"><span class="section-number-3">2.2.</span> Permisos de archivos</h3>
+<p>
+En sistemas Unix y Linux, cada archivo y directorio tiene <b>permisos</b> que definen quién puede leer, escribir o ejecutar ese archivo. Estos permisos están divididos en tres categorías:
+</p>
+
+<ol>
+<li><b>User Dueño (owner)</b>: El usuario que creó el archivo.</li>
+<li><b>Grupo (group)</b>: Usuarios que pertenecen al mismo grupo que el archivo.</li>
+<li><b>Otros (others)</b>: Todos los demás usuarios del sistema.</li>
+
+</ol>
+
+<p>
+Y cada categoría puede tener estos permisos:
+</p>
+
+<ul>
+<li><code>r</code> → <b>lectura</b> (read)</li>
+<li><code>w</code> → <b>escritura</b> (write)</li>
+<li><code>x</code> → <b>ejecución</b> (execute)</li>
+
+</ul>
+</section>
+<section id="slide-org2539a5f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org2539a5f"><span class="section-number-4">2.2.1.</span> Cambiar permisos: <code>chmod</code></h4>
+<p>
+Puedes modificar permisos con el comando <code>chmod</code>. Hay dos formas: <b>simbólica</b> y <b>octal</b>.
+</p>
+<ol class="org-ol">
+<li><a id="org900ebf5"></a>Forma simbólica<br />
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #c792ea;">chmod</span> u+x archivo.sh  <span style="color: #676E95;"># </span><span style="color: #676E95;">da permiso de ejecuci&#243;n al due&#241;o
+</span><span style="color: #c792ea;">chmod</span> g+w archivo.txt <span style="color: #676E95;"># </span><span style="color: #676E95;">da permiso de escritura al grupo
+</span><span style="color: #c792ea;">chmod</span> o-r datos.txt   <span style="color: #676E95;"># </span><span style="color: #676E95;">quita permiso de lectura a otros</span>
+</code></pre>
+</div>
+
+<p>
+Donde:
+</p>
+<ul>
+<li><code>u</code> ~ dueño (user)</li>
+<li><code>g</code> ~ grupo (group)</li>
+<li><code>o</code> = otros (others)</li>
+<li><code>a</code> = todos (all)</li>
+
+</ul>
+
+
+</section>
+<section id="slide-org900ebf5-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+</li>
+<li><a id="org9cee879"></a>Forma octal<br />
+<p>
+Cada permiso tiene un valor numérico:
+</p>
+<ul>
+<li><code>r</code> = 4</li>
+<li><code>w</code> = 2</li>
+<li><code>x</code> = 1</li>
+
+</ul>
+
+<p>
+Se suman por categoría. Por ejemplo:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #c792ea;">chmod</span> 755 script.sh
+</code></pre>
+</div>
+
+<p>
+Significa:
+</p>
+<ul>
+<li><b>7</b> para el dueño: 4+2+1 → <code>rwx</code></li>
+<li><b>5</b> para el grupo: 4+0+1 → <code>r-x</code></li>
+<li><b>5</b> para otros: 4+0+1 → <code>r-x</code></li>
+
+</ul>
+
+<p>
+Entonces: <code>rwxr-xr-x</code>
+</p>
+</li>
+</ol>
+</section>
+<section id="slide-org00c877f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org00c877f"><span class="section-number-4">2.2.2.</span> Cambiar dueño y grupo:</h4>
+<p>
+<code>chown</code>  <code>chgrp</code>
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #c792ea;">chown</span> nuevo_usuario archivo.txt
+chgrp nuevo_grupo archivo.txt
+</code></pre>
+</div>
+
+<p>
+&gt; Nota: <code>chown</code> puede cambiar ambos: <code>chown usuario:grupo archivo</code>.
+</p>
+</section>
+<section id="slide-orgd444c73" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgd444c73"><span class="section-number-4">2.2.3.</span> ¿Por qué es importante ?</h4>
+<ul>
+<li class="fragment roll-in">Al <b>ejecutar scripts</b> (Python, Bash, etc.), necesitas permiso de ejecución.</li>
+<li class="fragment roll-in">En entornos colaborativos, controlar quién modifica archivos es clave.</li>
+<li class="fragment roll-in">En servidores de cómputo o tareas automatizadas, los permisos evitan errores de acceso.</li>
+
+</ul>
+</section>
+<section id="slide-org872149d" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org872149d"><span class="section-number-3">2.3.</span> mv : Mover archivos</h3>
+<pre  class="example" >
+mv archivo_viejo archivo_nuevo
+</pre>
+</section>
+<section id="slide-org53e3542" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org53e3542"><span class="section-number-3">2.4.</span> touch  : Crear archivos vacios</h3>
+<pre  class="example" >
+touch archivo_nuevo.txt
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-org87b85c1" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org87b85c1"><span class="section-number-2">3.</span> Tuberías y redireccionamiento</h2>
+<p>
+Las tuberías (<i>pipes</i>) (<code>|</code>) y el redireccionamiento (<code>&lt; &gt;</code>).
+Permiten manipular la entrada y salida de datos entre comandos.
+</p>
+
+<p>
+<img src="./images/Pipeline.png" alt="Pipeline.png" />
+(Tomado de Wikipedia)
+</p>
+
+</section>
+<section id="slide-org87b85c1-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li class="fragment roll-in">Permite conectar la salida de un comando como entrada de otro</li>
+<li class="fragment roll-in">Redirige resultados a archivos en lugar de mostrarlos en pantalla</li>
+<li class="fragment roll-in">Ayuda a construir &ldquo;tuberías&rdquo; (pipelines) de procesamiento de datos</li>
+<li class="fragment roll-in">Son la base de la filosofía Unix: <b><b>herramientas simples que hacen una cosa bien</b></b></li>
+
+</ul>
+</section>
+<section id="slide-orge54e08d" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orge54e08d"><span class="section-number-3">3.1.</span> ¿ Cómo funcionan ?</h3>
+<p>
+Cuando ejecutamos un comando en la terminal, se tienen las siguientes entradas y salidas.
+</p>
+<ul>
+<li class="fragment roll-in">Entrada estándar (stdin): de dónde lee datos</li>
+<li class="fragment roll-in">Salida estándar (stdout): hacia dónde escribe resultados</li>
+<li class="fragment roll-in">Salida de error (stderr): mensajes de error o advertencias</li>
+
+</ul>
+</section>
+<section id="slide-orge54e08d-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<p>
+Por default: 
+</p>
+<ul>
+<li class="fragment roll-in"><i>stdin</i> lee desde el teclado</li>
+<li class="fragment roll-in"><i>stdout</i> escribe en la pantalla</li>
+<li class="fragment roll-in"><i>stderr</i> también escribe en la pantalla, pero es independiente</li>
+
+</ul>
+
+</section>
+<section id="slide-orge54e08d-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+
+<p>
+Esto permite manipular flujos de datos fácilmente usando redirecciones como:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #439c48e8635c;"> </span> comando &lt; archivo_entrada.txt &gt; salida.txt 2&gt; errores.txt
+</code></pre>
+</div>
+
+<ul>
+<li class="fragment appear"><code>&lt;</code> redirige entrada</li>
+<li class="fragment appear"><code>&gt;</code> redirige salida estándar</li>
+<li class="fragment appear"><code>2&gt;</code> redirige errores</li>
+
+</ul>
+</section>
+<section id="slide-orga7ec54a" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orga7ec54a"><span class="section-number-4">3.1.1.</span> Forma de uso</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #676E95;"># </span><span style="color: #676E95;">Formato con redireccionamiento
+</span><span style="color: #676E95;"># </span><span style="color: #676E95;">Comando recibe archivo_entrada, escribe: archivo_salida
+</span>comando &lt; archivo_entrada &gt; archivo_salida
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Usando tuber&#237;as
+</span>comando1 | comando2 | comando3
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Redireccionando Errores
+</span>comando 2&gt; errores.log             <span style="color: #676E95;"># </span><span style="color: #676E95;">Solo errores
+</span>comando &gt; salida.log 2&gt;&amp;1          <span style="color: #676E95;"># </span><span style="color: #676E95;">Todo en un archivo</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orgd0caed4" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgd0caed4"><span class="section-number-3">3.2.</span> Tipos de redirecciones</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="fragment (appear)">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Símbolo</th>
+<th scope="col" class="org-left">Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&vert;</td>
+<td class="org-left">Conecta salida de un comando con entrada de otro</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&gt;</code></td>
+<td class="org-left">Redirige salida a un archivo (sobreescribe)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&gt;&gt;</code></td>
+<td class="org-left">Agrega salida al final de un archivo</td>
+</tr>
+
+<tr>
+<td class="org-left">~&lt;</td>
+<td class="org-left">Usa archivo como entrada</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>2&gt;</code></td>
+<td class="org-left">Redirige errores a un archivo</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>&amp;&gt;</code></td>
+<td class="org-left">Redirige tanto salida normal como errores</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-orgcd94314" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgcd94314"><span class="section-number-2">4.</span> Ejemplos</h2>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #676E95;"># </span><span style="color: #676E95;">Guardar lista de archivos en un archivo
+</span><span style="color: #c792ea;">ls</span> -l &gt; archivos.txt
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Contar cu&#225;ntos archivos hay
+</span><span style="color: #c792ea;">ls</span> | wc -l
+</code></pre>
+</div>
+</section>
+<section id="slide-org5b43025" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org5b43025"><span class="section-number-3">4.1.</span> Hola Mundo!</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"Hola mundo"</span> &gt; saludo.txt     <span style="color: #676E95;"># </span><span style="color: #676E95;">Escribir en archivo</span>
+</code></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"Juan"</span> &gt;&gt; nombres.txt     <span style="color: #676E95;"># </span><span style="color: #676E95;">Escribir en archivo
+</span><span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"Antonio"</span> &gt;&gt; nombres.txt     <span style="color: #676E95;"># </span><span style="color: #676E95;">Escribir en archivo
+</span><span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"Jessica"</span> &gt;&gt; nombres.txt     <span style="color: #676E95;"># </span><span style="color: #676E95;">Escribir en archivo</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-orgd20af1b" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgd20af1b"><span class="section-number-4">4.1.1.</span> Reordenar nombres</h4>
+<pre  class="example" >
+sort &lt; nombres.txt &gt; ordenados.txt # Leer de un archivo y guardar en otro
+</pre>
+</section>
+<section id="slide-org22a20eb" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org22a20eb"><span class="section-number-3">4.2.</span> Otro ejemplo más práctico</h3>
+<p>
+Encontrar archivos modificados hoy y contarlos
+</p>
+<pre  class="example" >
+ls -la | grep "$(date +%b\ %d)" | wc -l
+</pre>
+</section>
+<section id="slide-org61eb68a" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org61eb68a"><span class="section-number-3">4.3.</span> Más información en:</h3>
+<ul>
+<li><a href="https://www.gnu.org/software/bash/manual/html_node/Redirections.html">Manual de Bash - Redirecciones</a></li>
+
+</ul>
+</section>
+<section id="slide-org2b94eb4" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org2b94eb4"><span class="section-number-3">4.4.</span> Buscar archivos</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Buscar archivos y procesarlos: cambiar permisos solo a scripts Python
+</span><span style="color: #c792ea;">find</span> . -name <span style="color: #c3e88d;">"*.py"</span> -type f | xargs <span style="color: #c792ea;">chmod</span> +x
+
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Monitoreo simple: revisar uso de CPU cada 5 segundos
+</span><span style="color: #89DDFF;">while </span><span style="color: #82aaff;">true</span>; <span style="color: #89DDFF;">do</span> uptime &gt;&gt; cpu_log.txt; <span style="color: #c792ea;">sleep</span> 5; <span style="color: #89DDFF;">done</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Seleccionar solo algunas columnas
+</span><span style="color: #c792ea;">cat</span> cpu.log.txt | awk <span style="color: #c3e88d;">'{print $1, $6, $10}'</span> | sort -k 2
+
+</code></pre>
+</div>
+</section>
+<section id="slide-org3b67d77" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org3b67d77"><span class="section-number-3">4.5.</span> Otros comandos útiles</h3>
+<div class="outline-text-3" id="text-4-5">
+</div>
+</section>
+<section id="slide-org40ae500" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org40ae500"><span class="section-number-4">4.5.1.</span> cat : visualizar (concatenar) archivos</h4>
+
+
+</section>
+<section id="slide-org1847d54" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org1847d54"><span class="section-number-4">4.5.2.</span> rm | borrar archivos o directorios</h4>
+
+</section>
+<section id="slide-orgd014a69" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgd014a69"><span class="section-number-4">4.5.3.</span> man : Manual del comando</h4>
+
+</section>
+<section id="slide-orgd159d84" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgd159d84"><span class="section-number-4">4.5.4.</span> less : visualizar archivo</h4>
+
+</section>
+<section id="slide-org4259da5" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org4259da5"><span class="section-number-4">4.5.5.</span> head | tail : mostar cabecera, fin del archivo</h4>
+
+</section>
+<section id="slide-orgd10e940" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgd10e940"><span class="section-number-4">4.5.6.</span> mkdir | crear directorio</h4>
+
+</section>
+<section id="slide-org4a1ee90" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org4a1ee90"><span class="section-number-4">4.5.7.</span> ps | mostrar procesos en ejecución</h4>
+
+</section>
+<section id="slide-orge9cee84" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orge9cee84"><span class="section-number-4">4.5.8.</span> kill | terminar procesos</h4>
+
+</section>
+<section id="slide-org68ae66b" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org68ae66b"><span class="section-number-4">4.5.9.</span> top | mostrar tabla de procesos y recursos utilizados</h4>
+
+</section>
+<section id="slide-orgcb4d914" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgcb4d914"><span class="section-number-4">4.5.10.</span> ln  -s | crear accesos directos</h4>
+
+</section>
+<section id="slide-org13ce958" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org13ce958"><span class="section-number-4">4.5.11.</span> History</h4>
+</section>
+<section id="slide-org3002d95" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org3002d95"><span class="section-number-3">4.6.</span> Búsqueda historial con reversa</h3>
+<ul>
+<li class="fragment roll-in">Con la combinación de teclas: <code>CTRL + r &lt;PALABRA&gt;</code> se puede buscar la última ocurrencia del comando con <code>&lt;PALABRA&gt;</code></li>
+<li class="fragment roll-in">También se puede utilizar el símbolo <code>!</code> seguido del número del historial</li>
+
+</ul>
+</section>
+<section id="slide-org24b1f65" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org24b1f65"><span class="section-number-3">4.7.</span> Archivos de inicialización y ambiente</h3>
+<div class="outline-text-3" id="text-4-7">
+</div>
+</section>
+<section id="slide-org30ff6cf" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org30ff6cf"><span class="section-number-4">4.7.1.</span> El archivo <code>.bashrc</code></h4>
+<p>
+El archivo <code>~/.bashrc</code> es un script de bash que se ejecuta cada vez que iniciamos una sesión en la terminal en sistemas Unix. Este archivo permite personalizar el ambiente de trabajo, estableciendo variables, alias, funciones y otros ajustes que facilitan el trabajo.
+</p>
+
+</section>
+<section id="slide-org30ff6cf-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<p>
+Entre las funciones principales esta:
+</p>
+<ul>
+<li>Permitir automatizar tareas frecuentes.</li>
+<li>Configura el entorno de desarrollo (credenciales para APIs externos).</li>
+<li>Personaliza la experiencia en la terminal.</li>
+
+</ul>
+
+<p>
+Ejemplo básico de configuración en <code>/.bashrc</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #676E95;"># </span><span style="color: #676E95;">Establecer un alias para </span><span style="color: #676E95;">ls</span><span style="color: #676E95;">
+</span><span style="color: #82aaff;">alias</span> <span style="color: #c792ea;">ls</span>=<span style="color: #c3e88d;">'</span><span style="color: #c3e88d;">ls</span><span style="color: #c3e88d;"> --color=auto'</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Establecer una variable de entorno
+</span><span style="color: #82aaff;">export</span> <span style="color: #ffcb6b;">PATH</span>=<span style="color: #c3e88d;">"</span><span style="color: #f78c6c;">$</span><span style="color: #ffcb6b;">HOME</span><span style="color: #c3e88d;">/bin:</span><span style="color: #f78c6c;">$</span><span style="color: #ffcb6b;">PATH</span><span style="color: #c3e88d;">"</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Mostrar un mensaje al iniciar sesi&#243;n
+</span><span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">" Bienvenido al sistema, </span><span style="color: #89DDFF; font-weight: bold;">$(whoami)</span><span style="color: #c3e88d;">!"</span>
+</code></pre>
+</div>
+
+<p>
+Para aplicar los cambios hechos en <code>~/.bashrc</code>, puedes ejecutar:
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #82aaff;">source</span> ~/.bashrc
+</code></pre>
+</div>
+<p>
+o reiniciar la terminal.
+</p>
+</section>
+<section id="slide-org622b1f8" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org622b1f8"><span class="section-number-4">4.7.2.</span> Configuraciones globales</h4>
+<p>
+En sistemas como Ubuntu o Debian, también existe el archivo <code>/etc/bash.bashrc</code>, que define configuraciones globales para todas las cuentas del sistema. Sin embargo, es recomendable modificar solo <code>~/.bashrc</code> para evitar interferencias.
+</p>
+</section>
+<section id="slide-org50bc37f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org50bc37f"><span class="section-number-4">4.7.3.</span> Ejemplo avanzado de uso de <code>~/.bashrc</code> para un entorno científico:</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #676E95;"># </span><span style="color: #676E95;">Alias &#250;tiles para el desarrollo
+</span><span style="color: #82aaff;">alias</span> <span style="color: #ffcb6b;">ll</span>=<span style="color: #c3e88d;">'</span><span style="color: #c3e88d;">ls</span><span style="color: #c3e88d;"> -alF'</span>
+<span style="color: #82aaff;">alias</span> <span style="color: #ffcb6b;">gs</span>=<span style="color: #c3e88d;">'</span><span style="color: #c3e88d;">git</span><span style="color: #c3e88d;"> status'</span>
+<span style="color: #82aaff;">alias</span> <span style="color: #ffcb6b;">ga</span>=<span style="color: #c3e88d;">'</span><span style="color: #c3e88d;">git</span><span style="color: #c3e88d;"> add'</span>
+<span style="color: #82aaff;">alias</span> <span style="color: #ffcb6b;">gc</span>=<span style="color: #c3e88d;">'</span><span style="color: #c3e88d;">git</span><span style="color: #c3e88d;"> commit'</span>
+<span style="color: #82aaff;">alias</span> <span style="color: #ffcb6b;">gp</span>=<span style="color: #c3e88d;">'</span><span style="color: #c3e88d;">git</span><span style="color: #c3e88d;"> push'</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">Variables de entorno para Python y R
+</span><span style="color: #82aaff;">export</span> <span style="color: #ffcb6b;">PYTHONPATH</span>=<span style="color: #c3e88d;">"</span><span style="color: #f78c6c;">$</span><span style="color: #ffcb6b;">{HOME}</span><span style="color: #c3e88d;">/proyectos:</span><span style="color: #f78c6c;">$</span><span style="color: #ffcb6b;">PYTHONPATH</span><span style="color: #c3e88d;">"</span>
+<span style="color: #82aaff;">export</span> <span style="color: #ffcb6b;">R_LIBS_USER</span>=<span style="color: #c3e88d;">"</span><span style="color: #f78c6c;">$</span><span style="color: #ffcb6b;">{HOME}</span><span style="color: #c3e88d;">/R/library"</span>
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org34754b3" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org34754b3"><span class="section-number-2">5.</span> Ejercicio con ciclos</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+</section>
+<section id="slide-orgf52e163" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgf52e163"><span class="section-number-3">5.1.</span> Bajemos un libro de <i>Project: Gutenberg</i></h3>
+<ol>
+<li>Vamos a bajar: <a href="https://www.gutenberg.org/cache/epub/1727/pg1727.txt">la odisea</a></li>
+
+</ol>
+
+<pre  class="example" >
+wget https://www.gutenberg.org/cache/epub/1727/pg1727.txt
+</pre>
+</section>
+<section id="slide-org3d282fe" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org3d282fe"><span class="section-number-3">5.2.</span> Cambiamos el nombre:</h3>
+<pre  class="example" >
+mv pg1727.txt la_odisea.txt
+</pre>
+
+<ol>
+<li>Buscamos la palabra &ldquo;Ulysses&rdquo;</li>
+
+</ol>
+<pre  class="example" >
+# Buscar palabras en un texto grande
+cat la_odisea.txt | grep "Ulysses" 
+</pre>
+</section>
+<section id="slide-orge87f6d2" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orge87f6d2"><span class="section-number-3">5.3.</span> Contamos las ocurrencias de <code>Ulysses</code> en el texto</h3>
+<pre  class="example" >
+# Buscar palabras en un texto grande
+cat la_odisea.txt | grep "Ulysses" | wc
+</pre>
+</section>
+<section id="slide-org7f5259f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org7f5259f"><span class="section-number-3">5.4.</span> Ciclo, sobre cada nombre que aparece en la odisea</h3>
+<p>
+El archivo <code>nombres_odisea.txt</code> contiene una lista sencilla de todos los personajes que aparecen en la mítica historia de de Ulises en su regreso a Ítaca.
+</p>
+<pre  class="example" >
+#Podemos utilizar un mini-bash
+for i in $(cat ./ejem_odisea/nombres_odisea.txt);
+do
+  echo $i;
+done
+</pre>
+</section>
+<section id="slide-org2d8a2ce" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org2d8a2ce"><span class="section-number-3">5.5.</span> Cuántas veces aparece cada personaje en la historia?</h3>
+<pre  class="example" >
+for NOMBRE in $(cat ./ejem_odisea/nombres_odisea.txt);
+do
+ CONTEO=$(cat la_odisea.txt | grep ${NOMBRE} | wc -l)
+ echo ${NOMBRE} ${CONTEO} &gt;&gt; conteo_nombres.txt
+done
+</pre>
+</section>
+<section id="slide-org1327cf3" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org1327cf3"><span class="section-number-3">5.6.</span> Quién es el personaje más mencionado?</h3>
+<pre  class="example" >
+cat conteo_nombres.txt | sort -nk 2 -r 
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-org738c5db" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org738c5db"><span class="section-number-2">6.</span> Ejercicios con condicionales en Bash</h2>
+<p>
+Los condicionales en Bash permiten tomar decisiones durante la ejecución de un script. La estructura principal es <code>if-elif-else-fi</code>.
+</p>
+
+<ul>
+<li>Comandos básicos con condicionales</li>
+
+</ul>
+
+<p>
+*/ if :: Ejecutar si una condición es verdadera
+</p>
+
+<p>
+La sintaxis más básica:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #89DDFF;">if</span> [ condicion ]; <span style="color: #89DDFF;">then</span>
+<span style="color: #439c48e8635c;"> </span> <span style="color: #676E95;"># </span><span style="color: #676E95;">Comandos si es verdadera
+</span><span style="color: #89DDFF;">fi</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org7caf66f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org7caf66f"><span class="section-number-3">6.1.</span> Ejemplo: Verificar un archivo existe</h3>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #89DDFF;">if</span> [ -f <span style="color: #c3e88d;">"mi_archivo.txt"</span> ]; <span style="color: #89DDFF;">then</span>
+<span style="color: #439c48e8635c;"> </span> <span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"El archivo existe"</span>
+<span style="color: #89DDFF;">fi</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org6d48192" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org6d48192"><span class="section-number-4">6.1.1.</span> else :: Ejecutar si es falsa</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #89DDFF;">if</span> [ <span style="color: #89DDFF; font-weight: bold;">!</span> -f <span style="color: #c3e88d;">"mi_archivo.txt"</span> ]; <span style="color: #89DDFF;">then</span>
+<span style="color: #439c48e8635c;"> </span> <span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"El archivo NO existe"</span>
+<span style="color: #89DDFF;">else</span>
+<span style="color: #439c48e8635c;"> </span> <span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"El archivo s&#237; existe"</span>
+<span style="color: #89DDFF;">fi</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org936ddaa" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org936ddaa"><span class="section-number-4">6.1.2.</span> elif :: Combinar condiciones múltiples</h4>
+<div class="org-src-container">
+
+<pre  class="src src-bash"   ><code trim><span style="color: #89DDFF;">if</span> [ -f <span style="color: #c3e88d;">"datos.csv"</span> ]; <span style="color: #89DDFF;">then</span>
+<span style="color: #439c48e8635c;"> </span> <span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"Es un CSV"</span>
+<span style="color: #89DDFF;">elif</span> [ -f <span style="color: #c3e88d;">"datos.json"</span> ]; <span style="color: #89DDFF;">then</span>
+<span style="color: #439c48e8635c;"> </span> <span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"Es un JSON"</span>
+<span style="color: #89DDFF;">else</span>
+<span style="color: #439c48e8635c;"> </span> <span style="color: #c792ea;">echo</span> <span style="color: #c3e88d;">"Formato desconocido"</span>
+<span style="color: #89DDFF;">fi</span>
+</code></pre>
+</div>
+</section>
+<section id="slide-org40757bf" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org40757bf"><span class="section-number-3">6.2.</span> Operadores de comparación</h3>
+<p>
+Para archivos:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operador</th>
+<th scope="col" class="org-left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>-f</code></td>
+<td class="org-left">Existe y es un archivo regular</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-d</code></td>
+<td class="org-left">Existe y es un directorio</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-r</code></td>
+<td class="org-left">Es legible por el usuario</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-w</code></td>
+<td class="org-left">Es escribible</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-x</code></td>
+<td class="org-left">Es ejecutable</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-s</code></td>
+<td class="org-left">No está vacío</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Para números y strings:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operador</th>
+<th scope="col" class="org-left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>==</code></td>
+<td class="org-left">Igual que</td>
+</tr>
+
+<tr>
+<td class="org-left">=~ =~</td>
+<td class="org-left">Coincidencia con patrón (regex)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>!=</code></td>
+<td class="org-left">Diferente de</td>
+</tr>
+
+<tr>
+<td class="org-left">=~ =~</td>
+<td class="org-left">Coincidencia con patrón (regex)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-lt</code></td>
+<td class="org-left">Menor que</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-gt</code></td>
+<td class="org-left">Mayor que</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-le</code></td>
+<td class="org-left">Menor o igual</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>-ge</code></td>
+<td class="org-left">Mayor o igual</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operador</th>
+<th scope="col" class="org-left">Significado (strings)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>=</code></td>
+<td class="org-left">Contiene (substring)</td>
+</tr>
+
+<tr>
+<td class="org-left">=~ =~</td>
+<td class="org-left">Coincidencia con patrón (regex)</td>
+</tr>
+
+<tr>
+<td class="org-left">=~ =~</td>
+<td class="org-left">Longitud nula (vacío)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-orgd0e3e00" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgd0e3e00"><span class="section-number-2">7.</span> * Ejercicio propuesto</h2>
+<ol>
+<li>Crear un script que:
+<ul>
+<li>Pida el nombre de un archivo por teclado</li>
+<li>Verifica si existe</li>
+<li>Si existe, muestra:
+<ul>
+<li>Si es legible</li>
+<li>Su tamaño en KB</li>
+<li>Si es ejecutable</li>
+
+</ul></li>
+<li>Si no existe, crearlo vacío</li>
+
+</ul></li>
+
+</ol>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealZoom, RevealNotes],
+background: "url('./images/vlt-mw-potw.jpg) no-repeat center/cover", transition: 'cube', width:"95%", height:"95%", center: true, autoPlayMedia: false
+});
+
+</script>
+</body>
+</html>
