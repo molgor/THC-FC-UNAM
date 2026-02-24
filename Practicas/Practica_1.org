@@ -1,0 +1,13 @@
+#+title: Practica 1
+#+AUTHOR:    Juan Escamilla
+#+EMAIL:     juan@bioma.mx
+#+DATE:      2026-02-24 07:36
+#+LANGUAGE:   'en_gb'
+#+OPTIONS: toc:nil
+
+* Pregunta 1
+
+* Pregunta 2
+
+* Ejercicio 3
+
