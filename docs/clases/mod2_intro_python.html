@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Módulo 2: Python</title>
+<meta name="author" content="Juan Escamilla Mólgora"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/league.css" id="theme"/>
+
+<link rel="stylesheet" href="./mis_clases.css"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./images/earth-space1.png" data-background-size="1924px"><h1 class="title">Módulo 2: Python</h1><p class="subtitle">Análisis, modelación y visualización de datos</p>
+<h2 class="author">Juan Escamilla Mólgora</h2><h2 class="date">03.03.2026</h2><p class="date">Created: 2026-03-03 Tue 07:05</p>
+</section>
+<section>
+<section id="slide-orgf9f3990" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgf9f3990"><span class="section-number-2">1.</span> Módulo 2: Introducción al análisis, modelación y visualización de datos con Python</h2>
+<ul>
+<li class="fragment roll-in">Ecosistema de Python (paquetes, versiones, etc)</li>
+<li class="fragment roll-in">Manejo de Ambientes Virtuales</li>
+<li class="fragment roll-in">Sesiones interactivas</li>
+<li class="fragment roll-in">Instalación de paquetes</li>
+<li class="fragment roll-in">Tipos de datos en Python</li>
+<li class="fragment roll-in">Manejo de tablas con Pandas</li>
+<li class="fragment roll-in">Visualización de datos con Pandas</li>
+<li class="fragment roll-in">Análisis espacial con GeoPandas</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org797e75a" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="org797e75a"><span class="section-number-2">2.</span> ¿Qué es Python?</h2>
+<ul>
+<li>Lenguaje de programación de alto nivel</li>
+<li>Interpretado y de propósito general</li>
+<li>Popular en ciencias e investigación</li>
+
+</ul>
+
+</section>
+<section id="slide-org797e75a-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+
+<p>
+Python es un lenguaje de programación creado por Guido van Rossum en 1991. Se caracteriza por su sintaxis clara y legible, lo que lo hace ideal para principiantes y expertos por igual.
+</p>
+
+<p>
+<b>Características principales:</b>
+</p>
+<ul>
+<li>Interpretado (no necesita compilación)</li>
+<li>Multiplataforma (ARM, x86, etc)</li>
+<li>Código abierto</li>
+<li>Gran comunidad de usuarios</li>
+
+</ul>
+
+</section>
+<section id="slide-org797e75a-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #676E95;"># </span><span style="color: #676E95;">Ejemplo de sintaxis simple
+</span><span style="color: #82aaff;">print</span>(<span style="color: #c3e88d;">"&#161;Hola, mundo!"</span>)
+<span style="color: #ffcb6b;">edad</span> = 25
+<span style="color: #89DDFF;">if</span> edad &gt;= 18:
+&#9474;   <span style="color: #82aaff;">print</span>(<span style="color: #c3e88d;">"Eres mayor de edad"</span>)
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgf72b9f4" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgf72b9f4"><span class="section-number-2">3.</span> Ecosistema de Python para Ciencia de Datos</h2>
+</section>
+<section id="slide-orgf72b9f4-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li>Bibliotecas fundamentales: como NumPy, Pandas y Matplotlib</li>
+<li>Herramientas de visualización avanzada como Seaborn y Plotly</li>
+<li>Integración con Jupyter Notebooks para análisis interactivo</li>
+
+<li><a href="https://numpy.org/">NumPy</a> - Computación científica</li>
+<li><a href="https://pandas.pydata.org/">Pandas</a> - Manipulación de datos</li>
+<li><a href="https://matplotlib.org/">Matplotlib</a> - Visualización básica</li>
+<li><a href="https://jupyter.org/">Jupyter</a> - Entorno de desarrollo interactivo</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgb487885" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgb487885"><span class="section-number-2">4.</span> Manos a la obra</h2>
+<ul>
+<li>En el repositorio</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealZoom, RevealNotes],
+background: "url('./images/vlt-mw-potw.jpg) no-repeat center/cover", transition: 'cube', width:"95%", height:"95%", center: true, autoPlayMedia: false
+});
+
+</script>
+</body>
+</html>

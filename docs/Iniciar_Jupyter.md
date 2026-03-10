@@ -23,12 +23,12 @@ Inicializar el ambiente de trabajo local (ver: [[file:Instalar_Ambiente.md][inst
 Una vez dentro del ambiente, se puede correr el comando:
 
 ```bash
-jupyter lab
+poetry run jupyter lab
 ```
 
 Esto abrirá JupyterLab en tu navegador predeterminado. Para especificar puerto o directorio específicos:
 ```bash
-jupyter lab --port 8889 --notebook-dir=~/mi-proyecto
+poetry run jupyter lab --port 8889 --notebook-dir=~/mi-proyecto
 ```
 
 
