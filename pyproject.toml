@@ -8,6 +8,7 @@ readme = "README.org"
 [tool.poetry.dependencies]
 python = "^3.10"
 jupyterlab = "^4.0"
+matplotlib = "^3.10.8"
 
 [build-system]
 requires = ["poetry-core"]
