@@ -6,9 +6,11 @@ authors = ["Juan Escamilla Molgora <j.escamilla.molgora@ciencias.unam.mx>", "Ant
 readme = "README.org"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11.2"
 jupyterlab = "^4.0"
 matplotlib = "^3.10.8"
+pandas = "^3.0.1"
+pillow = ">=9.0.0"
 
 [build-system]
 requires = ["poetry-core"]
