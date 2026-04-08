@@ -11,6 +11,10 @@ jupyterlab = "^4.0"
 matplotlib = "^3.10.8"
 pandas = "^3.0.1"
 pillow = ">=9.0.0"
+sympy = "^1.14.0"
+scikit-learn = "^1.8.0"
+jupyterlab-rise = "^0.43.1"
+simpy = "^4.1.1"
 
 [build-system]
 requires = ["poetry-core"]
