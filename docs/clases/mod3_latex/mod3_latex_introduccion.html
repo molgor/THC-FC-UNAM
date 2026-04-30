@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="'en_gb'">
+<head>
+<meta charset="utf-8"/>
+<title>Introducción a Latex</title>
+<meta name="author" content="Juan Escamilla"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/league.css" id="theme"/>
+
+<link rel="stylesheet" href="./mis_clases.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./images/earth-space1.png" data-background-size="1924px"><h1 class="title">Introducción a Latex</h1><p class="subtitle">Módulo 3</p>
+<h2 class="author">Juan Escamilla</h2><h2 class="date">2026-04-27 06:17</h2><p class="date">Created: 2026-04-30 Thu 07:03</p>
+</section>
+</section>
+<section id="slide-org6831116" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org6831116"><span class="section-number-3">0.1.</span> Un poco de historia</h3>
+<div class="outline-text-3" id="text-0-1">
+</div>
+</section>
+<section id="slide-org29e1d4e" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org29e1d4e"><span class="section-number-4">0.1.1.</span> 1978 - Donald Knuth publica TeX</h4>
+<ul>
+<li>TeX como un sistema tipográfico de bajo nivel para producir documentos elegantes e independientes de la impresora (serie: <i>The Art of Computer Programming</i></li>
+<li>TeX funciona con "primitivas" (cajas, pegamento, penalizaciones), potentes pero engorrosos.</li>
+
+</ul>
+</section>
+<section id="slide-orgf35ee7a" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="orgf35ee7a"><span class="section-number-4">0.1.2.</span> 1984 - Leslie Lamport publica LaTeX 2.09</h4>
+<ul>
+<li>Creo capa de <i>alto nivel</i> alrededor de TeX (i.e. LaTeX)</li>
+<li><i>Clases de Documentos</i> (<code>article</code>, <code>report</code>, etc.)</li>
+<li><i>Ambientes</i>:
+<ul>
+<li>Listas</li>
+<li>Tablas (Cuadros)</li>
+<li>Figuras</li>
+<li>Secciones</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org51353b4" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org51353b4"><span class="section-number-4">0.1.3.</span> 1989 - AMS/LaTeX</h4>
+<ul>
+<li>Extensiones para escribir matemáticas
+<ul>
+<li>amsmath</li>
+<li>amsthm</li>
+<li>amssymb</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org57de7fe" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org57de7fe"><span class="section-number-4">0.1.4.</span> 1994 Publicación de LaTeX2e</h4>
+<ul>
+<li>Revisión compatible desarrollada por el Proyecto LaTeX3 (Frank Mittelbach, Chris Rowley, Rainer Schöpf, et al.).</li>
+<li>Sistema modular de clases y paquetes que sustituyó al código monolítico de LaTeX 2.09.</li>
+<li id="<b>Dependencias</b>">Comandos \ProvidesClass, \ProvidesPackage y mecanismo robusto de gestión de paquetes</li>
+<li id="<b>Licenciamiento</b>">LPPL (LaTeX Project Public License) como licencia oficial del proyecto.</li>
+<li id="<b>Distribución</b>">Versión actual instalada por defecto en TeX Live, MikTeX, MacTeX, etc.</li>
+
+</ul>
+</section>
+<section id="slide-org95e525d" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h4 id="org95e525d"><span class="section-number-4">0.1.5.</span> 2000 - 2020's Adopción masiva y ecosistema</h4>
+<ul>
+<li>CTAN: repositorio centralizado de miles de paquetes TeX / LaTeX</li>
+
+<li>Democratización del acceso mediante editores colaborativos en línea (e.g. Overleaf, ShareLaTeX)</li>
+
+</ul>
+
+</section>
+<section id="slide-org95e525d-split" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<ul>
+<li>Integración con flujos de trabajo modernos:
+<ul>
+<li>control de versiones (Git)</li>
+<li>Integración Continua (<code>latexmk</code>)</li>
+<li>Investigación Reproducible (<code>Sweave</code>, <code>knitr</code>, <code>Jupyter</code>)</li>
+
+</ul></li>
+<li>Uso más allá de matemáticas y física: por ejemplo: biología, economía, lingüística, derecho y editoriales comerciales</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgf8ead41" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h2 id="orgf8ead41"><span class="section-number-2">1.</span> ¿ Por qué LaTeX ?</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+</section>
+<section id="slide-org0c444e5" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org0c444e5"><span class="section-number-3">1.1.</span> Separación de Contenido y Presentación</h3>
+<p>
+Los autores escriben el contenido; LaTeX decide la presentación (similar a HTML/CSS, pero para PDF de calidad tipográfica).
+</p>
+</section>
+<section id="slide-org09e6278" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org09e6278"><span class="section-number-3">1.2.</span> Tipografía</h3>
+<p>
+Los algoritmos originales de Knuth para división de líneas, separación silábica y espaciado matemático siguen siendo insuperables en documentos técnicos.
+</p>
+</section>
+<section id="slide-orgd18cb40" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgd18cb40"><span class="section-number-3">1.3.</span> Estabilidad y Reproducibilidad</h3>
+<p>
+Un documento de LaTeX compilado hoy produce una salida prácticamente idéntica a la de hace una década (salvo actualizaciones de paquetes), esencial para la conservación de la investigación.
+</p>
+</section>
+<section id="slide-org7f7c56e" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org7f7c56e"><span class="section-number-3">1.4.</span> Comunidad y Ecosistema</h3>
+<ul>
+<li>Miles de paquetes gratuitos</li>
+
+<li>documentación exhaustiva (LaTeX Companion, TeXbook)</li>
+
+<li>Soporte activo vía listas de correo, StackExchange y CTAN.</li>
+
+<li>Código Abierto y Licenciamiento
+
+<ul>
+<li>Distribuciones
+<ul>
+<li>TexLive (Linux)</li>
+<li>MiKTeX  (Windows)</li>
+<li>MacTex (MacOS)</li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org26c169d" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org26c169d"><span class="section-number-3">1.5.</span> Fundamentos</h3>
+<ul>
+<li>Sintaxis</li>
+<li>Tipo de Lenguaje</li>
+<li>Conceptos básicos    
+<ul>
+<li>Secciones</li>
+<li>Tipos de formato (textbf, textit, underline, small, tiny, etc)</li>
+
+</ul></li>
+
+</ul>
+</section>
+<section id="slide-org0ad154a" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org0ad154a"><span class="section-number-3">1.6.</span> Ambientes y listas</h3>
+<ul>
+<li>Itemize</li>
+<li>Enumerate</li>
+<li>Center</li>
+<li>Verbatim</li>
+<li>Imágenes</li>
+<li>Imágenes múltiples</li>
+<li>Tablas</li>
+<li>Captions</li>
+<li>Referencias</li>
+
+</ul>
+</section>
+<section id="slide-orgf554d4f" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgf554d4f"><span class="section-number-3">1.7.</span> Matemáticas</h3>
+<ul>
+<li>Símbolos, Letras griegas, etc</li>
+<li>Ecuaciones</li>
+<li>Fracciones, raíces, etc.</li>
+
+</ul>
+</section>
+<section id="slide-orgf33d742" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="orgf33d742"><span class="section-number-3">1.8.</span> Paquetes esenciales</h3>
+<ul>
+<li>Bibtex / BibLaTex</li>
+<li>Estilos de bibliografía (natbib, apa, etc)</li>
+
+</ul>
+</section>
+<section id="slide-org488c7ba" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org488c7ba"><span class="section-number-3">1.9.</span> Diagramas y gráficos</h3>
+<ul>
+<li>Paquete Tikz</li>
+<li>Ejemplos</li>
+<li>Gráficas</li>
+<li>Diagramas conmutativos</li>
+<li>Diagramas de flujo</li>
+
+</ul>
+</section>
+<section id="slide-org0868d92" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org0868d92"><span class="section-number-3">1.10.</span> Manejo de referencias bibliográficas con Zotero</h3>
+<ul>
+<li>Ejercicios prácticos con Zotero</li>
+<li>Exportar a Bibtex</li>
+
+</ul>
+</section>
+<section id="slide-org7669537" data-background="./images/vlt-mw-potw.jpg" data-background-opacity="0.1">
+<h3 id="org7669537"><span class="section-number-3">1.11.</span> Ejercicios con <code>Document Classes</code> (Podría servir como Práctica)</h3>
+<ul>
+<li>Hacer el esqueleto de artículo científico con:
+<ul>
+<li>Resumen</li>
+<li>Introducción</li>
+<li>Métodos</li>
+<li>Resultados</li>
+<li>Discusión</li>
+<li>Conclusiones</li>
+
+</ul></li>
+
+<li>Hacer esqueleto de presentación con Beamer
+<ul>
+<li>importar estilo Metropolis</li>
+<li>Modificar el estilo para incluir una imagen (logo) y línea de encabezado y pie en todas las diapositivas</li>
+
+</ul></li>
+
+<li>Hacer esqueleto de Carta (Letter)
+<ul>
+<li>Añadir remitente, dirección, etc.</li>
+<li>Explorar paquete Koma y clase: <code>KomaLetter</code></li>
+
+</ul></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealZoom, RevealNotes],
+background: "url('./images/vlt-mw-potw.jpg) no-repeat center/cover", transition: 'cube', width:"95%", height:"95%", center: true, autoPlayMedia: false
+});
+
+</script>
+</body>
+</html>

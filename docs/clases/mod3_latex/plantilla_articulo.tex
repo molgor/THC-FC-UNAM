@@ -1,0 +1,123 @@
+\documentclass[12pt,a4paper]{article}
+
+% Codificación y fuentes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Idioma español
+\usepackage[spanish,es-noquoting,es-tabla]{babel}
+% es-noquoting: para usar comillas inglesas " " sin conflicto
+% es-tabla: cambia "Cuadro" por "Tabla"
+
+% Matemáticas y símbolos
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+
+% Gráficos y colores
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs} % Tablas profesionales
+
+% Geometría de página
+\usepackage[margin=2.5cm]{geometry}
+
+% Hiperenlaces
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% Configuración de párrafos
+\usepackage{setspace}
+\onehalfspacing % Interlineado 1.5
+\setlength{\parskip}{0.5em}
+
+% Teoremas y definiciones (opcional)
+\theoremstyle{definition}
+\newtheorem{definicion}{Definición}[section]
+\theoremstyle{theorem}
+\newtheorem{teorema}{Teorema}[section]
+\newtheorem{proposicion}{Proposición}[section]
+
+% Metadatos
+\title{\textbf{Título del Artículo}}
+\author{Nombre del Autor \\
+	\small Universidad/Institución \\
+	\small \texttt{correo@ejemplo.com}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\noindent Escribe aquí el resumen de tu artículo. Debe ser conciso, informativo y reflejar el contenido principal del trabajo. Generalmente entre 150-250 palabras.
+
+\vspace{1em}
+\noindent\textbf{Palabras clave:} keyword1, keyword2, keyword3, keyword4.
+\end{abstract}
+
+\section{Introducción}
+
+Comienza con el contexto general y la motivación de tu trabajo. Puedes citar referencias así: \cite{autor2023} o \cite{autor2023} dependiendo del estilo.
+
+\subsection{Antecedentes}
+
+Desarrolla el marco teórico necesario.
+
+\subsubsection{Subsección de ejemplo}
+
+Texto de la subsección.
+
+\section{Metodología}
+
+Describe los métodos utilizados. Por ejemplo, una ecuación matemática:
+\begin{equation}
+	E = mc^2
+	\label{eq:einstein}
+\end{equation}
+
+En la ecuación \eqref{eq:einstein} se muestra la equivalencia masa-energía.
+
+\section{Resultados}
+
+\begin{table}[htbp]
+	\centering
+	\caption{Ejemplo de tabla profesional}
+	\begin{tabular}{@{}lcc@{}}
+		\toprule
+		Concepto & Valor A & Valor B \\
+		\midrule
+		Elemento 1 & 10.5 & 20.3 \\
+		Elemento 2 & 15.2 & 18.7 \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:ejemplo}
+\end{table}
+
+\section{Conclusiones}
+
+Resume los hallazgos principales y su importancia.
+
+\section*{Agradecimientos}
+
+Opcional: agradecimientos a financiaciones o colaboradores.
+
+% Bibliografía
+\begin{thebibliography}{99}
+
+\bibitem{autor2023}
+Apellido, N. (2023).
+\newblock Título del libro o artículo.
+\newblock \textit{Revista}, 12(3), 45--67.
+
+\bibitem{otro2022}
+Otro Autor, M. (2022).
+\newblock \textit{Título en cursiva}.
+\newblock Editorial.
+
+\end{thebibliography}
+
+% O usa BibTeX/BibLaTeX:
+% \bibliographystyle{apalike-es}
+% \bibliography{referencias}
+
+\end{document}
