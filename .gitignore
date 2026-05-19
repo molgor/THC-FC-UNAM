@@ -1,3 +1,6 @@
+# --- Not INCLUDE ORG FILES
+*.org
+
 .DS_Store
 .idea
 *.log
@@ -8,4 +11,65 @@ tmp/
 build
 htmlcov
 
+
+
+# --- LaTeX build artifacts ---
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.fmt
+*.fot
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.out
+*.pyg
+*.run.xml
+*.synctex
+*.synctex.gz
+*.toc
+*.vrb
+*.auctex-auto
+# --- LaTeX temp/cache ---
+*.xdv
+*.acn
+*.acr
+*.alg
+*.dvi
+*.ps
+*.spl
+*.swp
+*.swo
+*~
+
+# --- BibTeX/Biber ---
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# --- minted / pygments ---
+*_minted*/
+*.pyg
+
+# --- OS/editor files ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
 

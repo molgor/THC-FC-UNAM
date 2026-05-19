@@ -1,8 +1,18 @@
-\documentclass[12pt,a4paper]{article}
+%\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,letter]{article}
 %% Aquí empieza el preámbulo
 
+\usepackage{amsmath}
 %%% Paquetes a utilizar
 \usepackage[spanish]{babel}
+% Para insertar imágenes
+\usepackage{graphicx}
+% Para multiples imágenes en la misma figura
+\usepackage{caption}
+\usepackage{subcaption}
+\graphicspath{{./imagenes/}}
+
+\usepackage{minted}
 
 %%% Metadatos del documento
 \title{Título del documento (artículo)}
@@ -16,45 +26,193 @@
 \maketitle
 
 \begin{abstract}
-“Happy son of Peleus,” answered the ghost of Agamemnon, “for having
-died at Troy far from Argos, while the bravest of the Trojans and the
-Achaeans fell round you fighting for your body. There you lay in the
-whirling clouds of dust, all huge and hugely, heedless now of your
-chivalry. We fought the whole of the livelong day, nor should we ever
-have left off if Jove had not sent a hurricane to stay us. Then, when
-we had borne you to the ships out of the fray, we laid you on your bed
-and cleansed your fair skin with warm water and with ointments. The
-Danaans tore their hair and wept bitterly round about you. Your mother,
-when she heard, came with her immortal nymphs from out of the sea, and
-the sound of a great wailing went forth over the waters so that the
-Achaeans quaked for fear. They would have fled panic-stricken to their
-ships had not wise old Nestor whose counsel was ever truest checked
-them saying, ‘Hold, Argives, fly not sons of the Achaeans, this is his
-mother coming from the sea with her immortal nymphs to view the body of
-her son.’
+          
+Latex es una aplicación para preparar documentos aplicando un
+lenguaje de marcado. Permite producir textos escritos de alta calidad,
+especializado en composición de expresiones de matemáticas, física,
+fórmulas, desde una fórmula estándar para uso general hasta artículos
+científicos, libros, informes y tesis. El propósito de este ejemplo es
+que sirva como una plantilla de \LaTeX para generar documentos útiles
+para hacer reportes de asignaturas científicas. Esto es, que la
+estructura de este documento replica la estructura del método
+científico a través de las secciones de: {\em Introducción, Métodos,
+  Resultados, Discusión y Conclusiones} y soporta el uso de figuras,
+tablas, gráficas y referencias bibliográficas.  
+
 
 \vspace{1cm}
-\noindent \texttt{keyword1, keyword2, keyword3, keyword4}.
+\noindent Palabras clave: \texttt{keyword1, keyword2, keyword3, keyword4}.
 
 \end{abstract}  
 % Esto es un comentario
-\section{Secci\'on}
-In the preface to my translation of the “Iliad” I have given my views
-as to the main principles by which a translator should be guided, and
-need not repeat them here, beyond pointing out that the initial liberty
-of translating poetry into prose involves the continual taking of more
-or less liberty throughout the translation; for much that is right in
-poetry is wrong in prose, and the exigencies of readable prose are the
-first things to be considered in a prose translation. That the reader,
-however, may see how far I have departed from strict construe, I will
-print here Messrs. Butcher and Lang’s translation of the sixty lines or
-so of the “Odyssey.” Their translation runs:
+\section{Introducción}
 
-\subsection{Subsección}
-Tell me, Muse, of that man, so ready at need, who wandered far and
+La sección de introducción en un reporte científico es la parte
+inicial que presenta el problema de estudio, el estado del arte, la
+brecha en el conocimiento y el objetivo de la investigación,
+estableciendo el contexto y justificando su relevancia.
+Responde a las preguntas: ¿Qué?, ¿Por qué? y ¿Para qué?.
+
+En LaTeX, una sección se emplea para comenzar una parte
+sustancial del documento. Proporciona un título descriptivo impreso,
+y, según la clase del documento, una numeración automática (como 1.,
+2.A o incluso "Sección Práctica"), y suele añadir una entrada
+automática en la tabla de contenidos (ToC). También genera un salto de
+página o de columna si la clase de documento lo define así.
+
+\section{Métodos}
+
+La sección de métodos en un informe científico describe cómo se
+realizó el estudio o el experimento. Debe describir precisamente cómo
+se realizaron las observaciones, experimentos y análisis. La finalidad
+de esto es que se pueda replicar por otras personas y corroborar los
+resultados obtenidos.
+
+Por ejemplo en la figura \ref{img:graph}.
+
+\begin{figure}[h]
+  \centering \includegraphics[width=.4\linewidth]{confucius.jpg}
+  \caption{Descripción de la imágen. En este caso, un retrato de
+    Confucio tomado de la Wikipedia.}
+  \label{img:graph}
+\end{figure}
+
+
+\subsection{Esto es el título de una subsección}
+\label{sec:subsección}
+Una subsección en LaTeX se define mediante el comando
+\texttt{subsection\{\}}. Este comando genera automáticamente un número de subsección y da formato al título fomentando la estructura lógica del documento. Sitúa el texto indicado en la clase del documento y permite hacer referencias mediante \texttt{label\{\}}.  
+
+Sigamos con las imágenes. Podemos hacer una tabla de imágenes
+utilizando el paquete \texttt{subcaption} o \texttt{subfig}.
+Por ejemplo, para insertar una imagen con 2x2 imágenes (es decir, 4
+subfiguras). En la subfigura \ref{img:confucio}, se ve a confucio, en
+la figura \ref{img:laotze}, se puede ver a Lao-Tze, etc..
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.24\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=5cm]{Laozi.jpg}  % Replace with actual image name
+        \caption{Retrato de Lao-Tse (Wikipedia)}
+        \label{img:laotze}
+    \end{subfigure}
+    %\hfill
+    \begin{subfigure}[b]{0.24\linewidth}
+        \centering
+        \includegraphics[width=\linewidth , height=5cm]{confucius.jpg}  % Replace with actual image name
+        \caption{Retrato de Confucio}
+        \label{img:confucio}
+    \end{subfigure}
+    \vspace{1.0\baselineskip}
+    % Add second row here for 2x2 layout
+    \begin{subfigure}[b]{0.24\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=5cm]{russel.jpg}  % Replace with actual image name
+        \caption{Retrato de Russel}
+        \label{img:russel}
+    \end{subfigure}
+    %\hfill
+    \begin{subfigure}[b]{0.24\linewidth}
+        \centering
+        \includegraphics[width=\linewidth, height=5cm]{suntzu.jpg}  % Replace with actual image name
+        \caption{Retrato de Suntzu}
+        \label{img:suntzu}
+    \end{subfigure}
+    \caption{Una muestra de cuatro retratos}
+    \label{img:retratos}
+\end{figure}
+
+
+\subsection{Formato de Texto}
+Para hacer listas:
+\begin{itemize}
+  \item Texto en \textbf{Negritas}
+  \item Texto en {\em Cursiva}
+  \item Texto \texttt{Máquina de escribir}
+\end{itemize}        
+
+\subsection{Tablas}
+Las tablas o cuadros no sirven para representar relaciones entre datos.
+
+
+
+
+\begin{table}
+  \label{tab:ejemplo1}
+  \caption{Este es un ejemplo de un curso con calificaciones.}
+  \centering
+\begin{tabular}{|c c c c c c|}
+  \hline
+  \textbf{Alumno} & Ex 1 & Ex 2 & Ex 3 & Ex 4 &                                                                                 \textbf{Promedio} \\
+  \hline
+Ana Pérez & 7.5 & 8.0 & 9.0 & 7.0 & 7.9 
+\\
+Juan López & 6.0 & 7.0 & 8.5 & 6.5 & 7.0 
+\\
+María García & 9.0 & 9.5 & 8.9 & 8.5 & 9.0 
+\\
+Carlos Ruiz & 8.0 & 8.5 & 8.0 & 7.5 & 8.0
+\\
+\hline
+\end{tabular}
+\end{table}  
+
+\subsection{Ejemplo para mostrar código}
+
+Para mostrar código podemos usar el ambiente 'Verbatim'.
+
+\begin{minted}{python}
+def fibonacci(n):
+    fib_secuence = []
+    a, b = 0, 1
+    
+    while len(fib_secuence) < n:
+        fib_secuence.append(a)
+        a, b = b, a + b
+    return fib_secuence
+
+n = int(input("Manual Sequence n value? \n"))
+print("Fibonacci sequence:")
+fibonacci_seq = fibonacci(n)
+print(fibonacci_seq)
+\end{minted} 
+
+Esta palabra es {\large large} pero esta es más {\em Grande}
+
+  \section{Ecuaciones y símbolos matemáticos}
+
+  Se pueden poner en la misma línea con \$ ecuacion entre signo de peso\$ por ejemplo:
+  $f(x) = x^{23}_{i,j} + xy + \epsilon$.
+  Con dos signos de peso (\$\$) lo hace en línea separada.
+
+  $$ f(x) = \log(x^n) + \exp^{\alpha_ix}$$
+
+  \subsection{Ambiente para ecuaciones}
+  También hay un ambiente para ecuaciones para poner referencias e
+  índices.
+
+La función de densidad de probabilidad de una distribución gaussiana (normal) con media $\mu$ y varianza $\sigma^2$ es:
+
+\begin{equation} \label{eq1}
+\begin{split}
+A & = \frac{\pi r^2}{2} \\
+ & = \frac{1}{2} \pi r^2 \\
+ & = \frac{1}{2} \pi r^2 \\
+ & = \frac{1}{2} \pi r^2 \\
+ & = \frac{1}{2} \pi r^2 \\
+ & = \frac{1}{2} \pi r^2 \\
+ & = \frac{1}{2} \pi r^2 \\
+ & = \frac{1}{2} \pi r^2 \\
+ & = \frac{1}{2} \pi r^2 
+\end{split}
+\caption{Leyenda de la ecuación}
+\end{equation}
+  
+  Tell me, Muse, of that man, so ready at need, who wandered far and
 wide, after he had sacked the sacred citadel of Troy, and many were the
 men whose towns he saw and whose mind he learnt, yea, and many the woes
-he suffered in his heart on the deep, striving to win his own life and
+he suffered in his heart on the deep, striving to win his own life and}
 the return of his company. Nay, but even so he saved not his company,
 though he desired it sore. For through the blindness of their own
 hearts they perished, fools, who devoured the oxen of Helios Hyperion:
@@ -184,7 +342,11 @@ very different one, with a climax for which no-one has asked her. For
 roughly the Return occupies eight Books, and Penelope and the Suitors
 sixteen.
 
+\section[ambs]{Ambientes}
 
+En LaTeX, los ambientes son bloques definidos por \texttt{\\begin{...}} y
+ que estructuran y formatean contenido. Ejemplos: `itemize`
+(listas con viñetas), `equation` (ecuaciones), `figure` (imágenes).
 
 \end{document}
 
